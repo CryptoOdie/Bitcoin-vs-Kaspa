@@ -13,13 +13,23 @@
       margin: 0;
       padding: 0;
     }
+    h1 {
+      font-size: 2.2em;
+      margin-top: 40px;
+    }
+    .bitcoin {
+      color: #f7931a;
+    }
+    .kaspa {
+      color: #17cfc4;
+    }
     .button-container {
-      margin-top: 100px;
+      margin-top: 20px;
     }
     .nav-button {
-      font-size: 1.5em;
-      padding: 15px 30px;
-      margin: 15px;
+      font-size: 1.2em;
+      padding: 10px 20px;
+      margin: 10px;
       border: none;
       background-color: #007BFF;
       color: white;
@@ -30,13 +40,40 @@
     .nav-button:hover {
       background-color: #0056b3;
     }
+    .iframe-container {
+      margin-top: 30px;
+      display: none;
+    }
+    iframe {
+      width: 95%;
+      height: 1000px;
+      border: none;
+    }
   </style>
+  <script>
+    function showCalculator(id) {
+      document.getElementById('iframe10').style.display = 'none';
+      document.getElementById('iframe32').style.display = 'none';
+      document.getElementById('iframe100').style.display = 'none';
+      document.getElementById(id).style.display = 'block';
+    }
+  </script>
 </head>
 <body>
+  <h1><span class="bitcoin">Bitcoin</span> vs. <span class="kaspa">Kaspa</span></h1>
   <div class="button-container">
-    <button class="nav-button" onclick="location.href='sim10.html'">10 BPS</button>
-    <button class="nav-button" onclick="location.href='sim32.html'">32 BPS</button>
-    <button class="nav-button" onclick="location.href='sim100.html'">100 BPS</button>
+    <button class="nav-button" onclick="showCalculator('iframe10')">10 BPS</button>
+    <button class="nav-button" onclick="showCalculator('iframe32')">32 BPS</button>
+    <button class="nav-button" onclick="showCalculator('iframe100')">100 BPS</button>
+  </div>
+  <div id="iframe10" class="iframe-container">
+    <iframe src="sim10.html"></iframe>
+  </div>
+  <div id="iframe32" class="iframe-container">
+    <iframe src="sim32.html"></iframe>
+  </div>
+  <div id="iframe100" class="iframe-container">
+    <iframe src="sim100.html"></iframe>
   </div>
 </body>
 </html>
